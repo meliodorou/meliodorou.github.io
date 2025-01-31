@@ -85,7 +85,7 @@
             const email = formData.get("email");
             const phone = formData.get("phone");
 
-            // Prepare data to send to Google Apps Script or other service
+            // Prepare data to send to Google Apps Script
             const data = {
                 name: name,
                 email: email,
@@ -101,7 +101,12 @@
               },
               mode: 'cors'  // This is crucial for handling CORS properly
             })
-            .then(response => response.json())  // Use response.json() to parse the response correctly
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to submit form");
+                }
+                return response.json();  // Use response.json() to parse the response correctly
+            })
             .then(result => {
               // Display a success message after submission
               document.getElementById('success-message').style.display = 'block';
@@ -110,6 +115,7 @@
             .catch(error => {
               alert("Error submitting form: " + error);
             });
+        });
     </script>
 
 </body>
