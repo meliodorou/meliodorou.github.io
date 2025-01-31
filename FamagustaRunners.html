@@ -75,8 +75,9 @@
     <div class="message" id="success-message">Thank you for joining! We will be in touch soon.</div>
 
     <script>
+        // Form submission logic
         document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();  // Prevent default form submission
+            event.preventDefault();  // Prevent the form from submitting normally
 
             // Collect form data
             const formData = new FormData(this);
@@ -84,29 +85,30 @@
             const email = formData.get("email");
             const phone = formData.get("phone");
 
-            // Prepare data to send to Google Apps Script or other external service
+            // Prepare data to send to Google Apps Script or other service
             const data = {
                 name: name,
                 email: email,
                 phone: phone
             };
 
-            // Send data to Google Apps Script (or other service like Airtable or Formspree)
-            fetch('https://script.google.com/macros/s/AKfycbzg-ToAPJyYPrDLNock_KcB9BbqOf3i1ljsKZZ3ayBitUeSFRHnjOys9kYsdsUmV5iNBA/exec', {
+            // Send data to Google Apps Script Web App
+            fetch('https://script.google.com/macros/s/AKfycbzg-ToAPJyYPrDLNock_KcB9BbqOf3i1ljsKZZ3ayBitUeSFRHnjOys9kYsdsUmV5iNBA/exec', {  // Replace with your actual Web App URL
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })
-            .then(response => response.text())
+            .then(response => response.text())  // You can check for any response errors here
             .then(result => {
-                // Display a success message after submission
+                // Display success message and reset form
                 document.getElementById('success-message').style.display = 'block';
-                // Optionally clear the form
                 document.getElementById('contact-form').reset();
             })
             .catch(error => {
+                // Log and alert if there's an error submitting the form
+                console.error("Error submitting form:", error);
                 alert("Error submitting form: " + error);
             });
         });
