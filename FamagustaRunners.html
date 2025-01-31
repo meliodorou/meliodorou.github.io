@@ -93,23 +93,23 @@
             };
 
             // Send data to Google Apps Script Web App
-fetch('https://script.google.com/macros/s/AKfycbzg/exec', {
-  method: 'POST',
-  body: JSON.stringify(data),
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  mode: 'no-cors'  // Add this line
-})
-.then(response => response.text())
-.then(result => {
-  document.getElementById('success-message').style.display = 'block';
-  document.getElementById('contact-form').reset();
-})
-.catch(error => {
-  alert("Error submitting form: " + error);
-});
-        });
+            fetch('https://script.google.com/macros/s/AKfycbzg/exec', {
+              method: 'POST',
+              body: JSON.stringify(data), // Send the form data
+              headers: {
+                'Content-Type': 'application/json', // Set content type as JSON
+              },
+              mode: 'cors'  // This is crucial for handling CORS properly
+            })
+            .then(response => response.json())  // Use response.json() to parse the response correctly
+            .then(result => {
+              // Display a success message after submission
+              document.getElementById('success-message').style.display = 'block';
+              document.getElementById('contact-form').reset();
+            })
+            .catch(error => {
+              alert("Error submitting form: " + error);
+            });
     </script>
 
 </body>
