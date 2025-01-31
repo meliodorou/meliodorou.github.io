@@ -59,15 +59,15 @@
     <h1>Join Famagusta Runners</h1>
     <p>Fill in the form below to join our running community!</p>
 
-    <form id="contact-form">
+    <form id="contact-form" autocomplete="on">
         <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required autocomplete="name">
 
         <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required autocomplete="email">
 
         <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required>
+        <input type="tel" id="phone" name="phone" required autocomplete="tel">
 
         <button type="submit">Join Now</button>
     </form>
@@ -75,9 +75,8 @@
     <div class="message" id="success-message">Thank you for joining! We will be in touch soon.</div>
 
     <script>
-        // Form submission logic
         document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();  // Prevent the form from submitting normally
+            event.preventDefault();  // Prevent default form submission
 
             // Collect form data
             const formData = new FormData(this);
@@ -95,20 +94,15 @@
             // Send data to Google Apps Script Web App
             fetch('https://script.google.com/macros/s/AKfycbxLoM8o7pZcbYt-txrypqIPgl7dQm7CSkUmfmKx2AMP93cB-4VZjDtBT71bvv-U3swaNw/exec', {
               method: 'POST',
-              body: JSON.stringify(data), // Send the form data
+              body: JSON.stringify(data),
               headers: {
-                'Content-Type': 'application/json', // Set content type as JSON
+                'Content-Type': 'application/json',
               },
-              mode: 'cors'  // This is crucial for handling CORS properly
+              mode: 'cors'  // Ensure the correct handling of CORS
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Failed to submit form");
-                }
-                return response.json();  // Use response.json() to parse the response correctly
-            })
+            .then(response => response.json())
             .then(result => {
-              // Display a success message after submission
+              // Show success message after submission
               document.getElementById('success-message').style.display = 'block';
               document.getElementById('contact-form').reset();
             })
