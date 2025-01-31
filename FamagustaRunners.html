@@ -93,24 +93,22 @@
             };
 
             // Send data to Google Apps Script Web App
-            fetch('https://script.google.com/macros/s/AKfycbzg-ToAPJyYPrDLNock_KcB9BbqOf3i1ljsKZZ3ayBitUeSFRHnjOys9kYsdsUmV5iNBA/exec', {  // Replace with your actual Web App URL
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.text())  // You can check for any response errors here
-            .then(result => {
-                // Display success message and reset form
-                document.getElementById('success-message').style.display = 'block';
-                document.getElementById('contact-form').reset();
-            })
-            .catch(error => {
-                // Log and alert if there's an error submitting the form
-                console.error("Error submitting form:", error);
-                alert("Error submitting form: " + error);
-            });
+fetch('https://script.google.com/macros/s/AKfycbzg/exec', {
+  method: 'POST',
+  body: JSON.stringify(data),
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  mode: 'no-cors'  // Add this line
+})
+.then(response => response.text())
+.then(result => {
+  document.getElementById('success-message').style.display = 'block';
+  document.getElementById('contact-form').reset();
+})
+.catch(error => {
+  alert("Error submitting form: " + error);
+});
         });
     </script>
 
