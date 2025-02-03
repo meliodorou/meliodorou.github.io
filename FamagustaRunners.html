@@ -14,7 +14,7 @@
 
     <h1>Enter Your First Name</h1>
     
-    <form id="name-form">
+    <form id="name-form">  <!-- Correct form ID -->
         <input type="text" id="first-name" name="first_name" required placeholder="First Name">
         <button type="submit">Submit</button>
     </form>
@@ -23,17 +23,17 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent default form submission
+    document.getElementById("name-form").addEventListener("submit", function(event) {  // Correct form ID
+      event.preventDefault(); 
 
       // Collect form data
-      const firstName = document.getElementById("first_name").value;
+      const firstName = document.getElementById("first-name").value;  // Correct input ID
 
       // Prepare data for Google Apps Script
       const data = { firstName: firstName };
 
       // Send data using fetch
-      fetch('https://script.google.com/macros/s/AKfycbwnJrsO3rPFzdHt4Lk9mkB23_L893z8rb3romTV4C8coeXbYZG8Kw7mC2G1ZphoWuCl/exec', {
+      fetch('https://script.google.com/macros/s/AKfycbwnJrs/exec', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -44,7 +44,7 @@
       .then(result => {
         if (result.status === "success") {
           document.getElementById("success-message").style.display = "block";
-          document.getElementById("contact-form").reset();
+          document.getElementById("name-form").reset();  // Correct form ID
         } else {
           alert("Error: " + result.message);
         }
@@ -55,7 +55,6 @@
     });
   });
 </script>
-    
 
 </body>
 </html>
