@@ -22,26 +22,29 @@
     <div class="message" id="success-message">Thank you! Your name has been recorded.</div>
 
     <script>
-        document.getElementById('name-form').addEventListener('submit', function(event) {
-            event.preventDefault();  
-
-            const firstName = document.getElementById("first-name").value;
-
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            const formData = new FormData(this);
+            const data = { firstName: formData.get("firstName") };
+        
             fetch("https://script.google.com/macros/s/AKfycbwnJrsO3rPFzdHt4Lk9mkB23_L893z8rb3romTV4C8coeXbYZG8Kw7mC2G1ZphoWuCl/exec", {
                 method: "POST",
-                body: JSON.stringify({ first_name: firstName }),
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+                mode: "cors",  // This is the key to enabling CORS handling
+                redirect: "follow"  // Avoid unnecessary redirects
             })
             .then(response => response.json())
             .then(result => {
-                if (result.status === "success") {
-                    document.getElementById("success-message").style.display = "block";
-                    document.getElementById("name-form").reset();
-                } else {
-                    alert("Error: " + result.message);
-                }
+                console.log("Success:", result);
+                document.getElementById("success-message").style.display = "block";
+                document.getElementById("contact-form").reset();
             })
             .catch(error => {
+                console.error("Error:", error);
                 alert("Error submitting form: " + error);
             });
         });
