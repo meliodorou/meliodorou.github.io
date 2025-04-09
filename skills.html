@@ -2,108 +2,177 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title>Skills</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills | Michalis Eliodorou</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --main-accent: #00bcd4;
+      --dark-text: #002855;
+      --light-bg: #f9fafa;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-bg);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: var(--dark-text);
+      margin-bottom: 0.5rem;
+    }
+
+    .content {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h3 {
+      color: var(--dark-text);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-card {
+      background-color: #f9f9f9;
+      border-left: 4px solid var(--main-accent);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
+    }
+
+    .skill-card h4 {
+      margin-top: 0;
+      color: #002855;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-table {
+      width: 100%;
+    }
+
+    .skill-table td {
+      padding: 6px 0;
+      font-size: 0.95rem;
+    }
+
+    .stars {
+      font-size: 1.1rem;
+    }
+
+    .stars[title]:hover {
+      cursor: help;
+      text-decoration: underline dotted;
+    }
+
+    footer {
+      background-color: #001F54;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+  </style>
 </head>
 
 <body>
-  <h3>My skills</h3>
 
-  <table cellspacing=10>
-    <thead>
-      <th>Programming</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>C</td>
-        <td>★★★★★</td>
-      </tr>
-      <tr>
-        <td>Visual Basic</td>
-        <td>★★★★★</td>
-      </tr>
-      <tr>
-        <td>Assembly</td>
-        <td>★★★★★</td>
-      </tr>
-      <tr>
-        <td>Pascal</td>
-        <td>★★★★★</td>
-      </tr>
-      <tr>
-        <td>Python</td>
-        <td>★★★★☆</td>
-      </tr>
-      <tr>
-        <td>Java</td>
-        <td>★★★☆☆</td>
-      </tr>
-    </tbody>
-  </table>
+  <header>
+    <h1>My Skills</h1>
+    <p>A summary of my technical knowledge and tools I've worked with.</p>
+  </header>
 
-<br>
+  <div class="content">
 
-<table>
-  <th>Web Development</th>
-  <tr>
-    <td>HTML</td>
-    <td>★★★★★</td>
-  </tr>
-  <tr>
-    <td>CSS</td>
-    <td>★★★★★</td>
-  </tr>
-  <tr>
-    <td>JavaScript</td>
-    <td>★★★★☆</td>
-  </tr>
-  <tr>
-    <td>XML</td>
-    <td>★★☆☆☆</td>
-  </tr>
-</table>
+    <div class="skills-grid">
+      
+      <div class="skill-card">
+        <h4>Programming</h4>
+        <table class="skill-table">
+          <tr><td>C</td><td class="stars" title="Expert">⭐⭐⭐⭐⭐</td></tr>
+          <tr><td>Visual Basic</td><td class="stars" title="Expert">⭐⭐⭐⭐⭐</td></tr>
+          <tr><td>Assembly</td><td class="stars" title="Expert">⭐⭐⭐⭐⭐</td></tr>
+          <tr><td>Pascal</td><td class="stars" title="Expert">⭐⭐⭐⭐⭐</td></tr>
+          <tr><td>Python</td><td class="stars" title="Advanced">⭐⭐⭐⭐☆</td></tr>
+          <tr><td>Java</td><td class="stars" title="Intermediate">⭐⭐⭐☆☆</td></tr>
+        </table>
+      </div>
 
-<br>
+      <div class="skill-card">
+        <h4>Web Development</h4>
+        <table class="skill-table">
+          <tr><td>HTML</td><td class="stars" title="Expert">⭐⭐⭐⭐⭐</td></tr>
+          <tr><td>CSS</td><td class="stars" title="Expert">⭐⭐⭐⭐⭐</td></tr>
+          <tr><td>JavaScript</td><td class="stars" title="Advanced">⭐⭐⭐⭐☆</td></tr>
+          <tr><td>XML</td><td class="stars" title="Beginner">⭐⭐☆☆☆</td></tr>
+        </table>
+      </div>
 
-<table>
-  <th>Hardware Design Languages</th>
-  <tr>
-    <td>SystemVerilog</td>
-    <td>★★★★☆</td>
-  </tr>
-  <tr>
-    <td>VHDL</td>
-    <td>★★★★☆</td>
-  </tr>
-</table>
+      <div class="skill-card">
+        <h4>Hardware Design Languages</h4>
+        <table class="skill-table">
+          <tr><td>SystemVerilog</td><td class="stars" title="Advanced">⭐⭐⭐⭐☆</td></tr>
+          <tr><td>VHDL</td><td class="stars" title="Advanced">⭐⭐⭐⭐☆</td></tr>
+        </table>
+      </div>
 
-<br>
+      <div class="skill-card">
+        <h4>Mathematical Tools</h4>
+        <table class="skill-table">
+          <tr><td>Matlab</td><td class="stars" title="Expert">⭐⭐⭐⭐⭐</td></tr>
+          <tr><td>Wolfram Mathematica</td><td class="stars" title="Advanced">⭐⭐⭐⭐☆</td></tr>
+        </table>
+      </div>
 
-<table>
-  <th>Mathematical tools</th>
-  <tr>
-    <td>Matlab</td>
-    <td>★★★★★</td>
-  </tr>
-  <tr>
-    <td>Wolfram Mathematica</td>
-    <td>★★★★☆</td>
-  </tr>
-</table>
+      <div class="skill-card">
+        <h4>Other Tools</h4>
+        <table class="skill-table">
+          <tr><td>Microsoft Office</td><td class="stars" title="Expert">⭐⭐⭐⭐⭐</td></tr>
+          <tr><td>LaTeX</td><td class="stars" title="Expert">⭐⭐⭐⭐⭐</td></tr>
+        </table>
+      </div>
 
-<br>
+    </div>
 
-<table>
-  <th>Other</th>
-  <tr>
-    <td>Microsoft Office</td>
-    <td>★★★★★</td>
-  </tr>
-  <tr>
-    <td>LaTeX</td>
-    <td>★★★★★</td>
-  </tr>
-</table>
+  </div>
+
+  <footer>
+    <p>© Michalis Eliodorou. All rights reserved.</p>
+  </footer>
 
 </body>
 
