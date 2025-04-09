@@ -1,47 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Movie Ranking</title>
-</head>
-<body>
-    
-    <h1>The best movies according to Michalis</h1>
 
-    <h2>My top 3</h2>
-    
-    <hr />
-    
-    <h3>The Prestige</h3>
-    
-    <p>Set in London in the 1800s, two rival magicians read each others diary containing 
-        the secrets of their magic tricks and personal life. As we go back in time when 
-        the diaries were written, both magicians become obsessed with their rival's best trick. 
-        The tricks, as shown to the audience, look the same, but neither magician can figure 
-        out how his opponent does it.</p>
-    
-    <h3>The Departed</h3>
-    
-    <p>In this crime-action tour de force, the South Boston state police force is waging war 
-        on Irish-American organized crime. Young undercover cop Billy Costigan is assigned to 
-        infiltrate the mob syndicate run by gangland chief Frank Costello. While Billy quickly
-         gains Costello's confidence, Colin Sullivan, a hardened young criminal who has infiltrated
-          the state police as an informer for the syndicate, is rising to a position of power in the
-           Special Investigation Unit. Each man becomes deeply consumed by their double lives, 
-           gathering information about the plans and counter-plans of the operations they have 
-           penetrated. But when it becomes clear to both the mob and the police that there is a 
-           mole in their midst, Billy and Colin are suddenly in danger of being caught and exposed 
-           to the enemy</p>
-    
-    <h3>Walk Hard: The Dewey Cox Story</h3>
-    
-    <p>The up-and-down-and-up-again story of musician Dewey Cox, 
-        whose songs would change a nation. On his rock 'n roll spiral, 
-        Cox sleeps with 411 women, marries three times, has 36 kids, stars in
-         his own 70s TV show, collects friends ranging from Elvis to the Beatles
-          to a chimp, and gets addicted to - and then kicks - every drug known to
-           man; but despite it all, Cox grows into a national icon and eventually
-            earns the love of a good woman - longtime backup singer Darlene.</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Movies | Michalis Eliodorou</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --main-accent: #00bcd4;
+      --dark-text: #002855;
+      --light-bg: #f4f4f8;
+      --glass-bg: rgba(255, 255, 255, 0.85);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #e0f7fa, #e8f5e9);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--dark-text);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #444;
+    }
+
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .movie-card {
+      background: var(--glass-bg);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .movie-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .movie-poster {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+    }
+
+    .movie-content {
+      padding: 1.5rem;
+    }
+
+    .movie-content h3 {
+      margin-top: 0;
+      color: var(--dark-text);
+      font-size: 1.4rem;
+    }
+
+    .movie-content p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #001F54;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>The Best Movies According to Michalis</h1>
+    <p>Handpicked with obsession, emotion, and cinematic respect 🎥</p>
+  </header>
+
+  <section class="movie-grid">
+
+    <!-- Movie 1 -->
+    <div class="movie-card">
+      <img src="https://m.media-amazon.com/images/I/51RdbvE69vL._AC_UF894,1000_QL80_.jpg" alt="The Prestige" class="movie-poster">
+      <div class="movie-content">
+        <h3>The Prestige</h3>
+        <p>Set in 1800s London, two rival magicians obsess over perfecting their greatest illusion. Secrets, sacrifice, and obsession twist together in Nolan’s masterclass of storytelling and cinematic sleight of hand.</p>
+      </div>
+    </div>
+
+    <!-- Movie 2 -->
+    <div class="movie-card">
+      <img src="https://m.media-amazon.com/images/I/91vPJ55ZmKL._AC_UF1000,1000_QL80_.jpg" alt="The Departed" class="movie-poster">
+      <div class="movie-content">
+        <h3>The Departed</h3>
+        <p>Two lives, two lies. A Boston cop undercover in the mob. A mobster undercover in the police. Scorsese’s tense crime thriller blurs loyalty and identity in a violent ballet of deception.</p>
+      </div>
+    </div>
+
+    <!-- Movie 3 -->
+    <div class="movie-card">
+      <img src="https://m.media-amazon.com/images/I/81QOdvOnC0L._AC_UF1000,1000_QL80_.jpg" alt="Walk Hard" class="movie-poster">
+      <div class="movie-content">
+        <h3>Walk Hard: The Dewey Cox Story</h3>
+        <p>A musical parody with heart and absurdity. Dewey Cox rises, falls, and rises again through rock 'n roll, 411 women, psychedelic phases, chimp friends, and ultimately, redemption through love and music.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© Michalis Eliodorou. All rights reserved.</p>
+  </footer>
 
 </body>
+
 </html>
