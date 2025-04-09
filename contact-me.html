@@ -2,26 +2,151 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title>Contact me</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me | Michalis Eliodorou</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --main-accent: #00bcd4;
+      --dark-text: #002855;
+      --light-bg: #f9fafa;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-bg);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: var(--dark-text);
+      margin-bottom: 0.5rem;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h3 {
+      color: var(--dark-text);
+      margin-top: 0;
+    }
+
+    a {
+      color: var(--main-accent);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #007c91;
+      text-decoration: underline;
+    }
+
+    form {
+      margin-top: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+    }
+
+    input[type="submit"] {
+      background-color: var(--main-accent);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0097a7;
+    }
+
+    footer {
+      background-color: #001F54;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+  </style>
 </head>
 
 <body>
-  <h3>Contact Me</h3>
 
-  <h1>My Contact Details</h1>
-  <p>My Address <br> My Phone Number <br> My e-mail</p>
-  <a href="https://www.linkedin.com/in/michalis-eliodorou/">LinkedIn</a>
-<hr>
-  <form action="mailto:sharkcon28@hotmail.com" method="post" enctype="text/plain">
-    <label>Your Name:</label>
-    <input type="text" name="yourName" value=""> <br>
-    <label>Your E-mail:</label>
-    <input type="email" name="yourEmail" value=""> <br>
-    <label>Your Message:</label> <br>
-<textarea name="yourMessage" rows="10" cols="40"></textarea>   <br>
- <input type="submit" name="">
-  </form>
+  <header>
+    <h1>Contact Me</h1>
+    <p>I'd love to hear from you — feel free to reach out directly or use the form below.</p>
+  </header>
+
+  <div class="content">
+    <h3>My Contact Details</h3>
+    <p>
+      Nicosia, Cyprus<br>
+      +357 99 999999<br>
+      michalis@example.com<br>
+      <a href="https://www.linkedin.com/in/michalis-eliodorou/" target="_blank">LinkedIn Profile</a>
+    </p>
+
+    <hr>
+
+    <form action="mailto:sharkcon28@hotmail.com" method="post" enctype="text/plain">
+      <label for="name">Your Name</label>
+      <input type="text" name="yourName" id="name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" name="yourEmail" id="email" required>
+
+      <label for="message">Your Message</label>
+      <textarea name="yourMessage" id="message" rows="6" required></textarea>
+
+      <input type="submit" value="Send Message">
+    </form>
+  </div>
+
+  <footer>
+    <p>© Michalis Eliodorou. All rights reserved.</p>
+  </footer>
 
 </body>
 
