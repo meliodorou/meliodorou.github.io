@@ -19,16 +19,20 @@
       --section-bg: #f9f9f9;
       --heading: #002855;
       --muted: #444;
+      --header-bg: linear-gradient(to right, #e0f7fa, #f1f8e9);
+      --footer-bg: #ffffff;
     }
 
     body.dark-mode {
       --bg: #121212;
       --text: #f0f0f0;
       --light: #1e1e1e;
-      --card-bg: #1f1f1f;
+      --card-bg: #5b5b5b;
       --section-bg: #181818;
       --heading: #e0e0e0;
       --muted: #cccccc;
+      --header-bg: #5b5b5b;
+      --footer-bg: #5b5b5b;
     }
 
     * {
@@ -46,9 +50,12 @@
     }
 
     header {
-      background: linear-gradient(to right, #e0f7fa, #f1f8e9);
-      text-align: center;
+      background: var(--header-bg);
       padding: 3rem 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
     }
 
     header h1 {
@@ -63,19 +70,20 @@
       color: var(--muted);
     }
 
-    .toggle-container {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .toggle-container button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
+    .dark-mode-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
       background-color: var(--accent);
       color: #fff;
       border: none;
-      border-radius: 6px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
       cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s;
     }
 
     .section {
@@ -140,28 +148,30 @@
     }
 
     .about-columns img {
-      border-radius: 50%;
-      max-width: 180px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 300px;
       height: auto;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     footer {
+      background-color: var(--footer-bg);
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
       color: var(--muted);
+      transition: background-color 0.3s;
     }
   </style>
 </head>
 
 <body>
   <header>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌓</button>
     <h1>Michalis Eliodorou</h1>
     <p><span id="typed-text"></span></p>
-    <div class="toggle-container">
-      <button onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
-    </div>
   </header>
 
   <section class="section">
@@ -178,69 +188,7 @@
     </div>
   </section>
 
-  <section class="section">
-    <h3>Education</h3>
-    <div class="grid">
-      <div class="card">
-        <h4>MBA, CIIM (2021–2024)</h4>
-        <p>Grade: 90/100 • Lupton Scholarship</p>
-      </div>
-      <div class="card">
-        <h4>MSc Computer Engineering, UCY (2020–2022)</h4>
-        <p>Grade: 8.5/10 • Full MSCA Scholarship</p>
-      </div>
-      <div class="card">
-        <h4>MSc Embedded Systems, Southampton (2016–2017)</h4>
-        <p>Grade: Distinction</p>
-      </div>
-      <div class="card">
-        <h4>BSc Electrical & Computer Eng, NTUA (2010–2016)</h4>
-        <p>Grade: 7.86/10</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h3>Work Experience</h3>
-    <div class="grid">
-      <div class="card">
-        <h4>IT Officer</h4>
-        <p>Ministry of Digital Strategy (2024–Now)</p>
-      </div>
-      <div class="card">
-        <h4>Network Specialist</h4>
-        <p>Kyndryl / IBM (2022–2024)</p>
-      </div>
-      <div class="card">
-        <h4>Access Network Engineer</h4>
-        <p>Epic Cyprus (2020–2022)</p>
-      </div>
-      <div class="card">
-        <h4>Marie Curie Fellow</h4>
-        <p>SPOTLIGHT Project (2017–2020)</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h3>Certifications</h3>
-    <div class="grid">
-      <div class="card"><h4>✅ Ethical Hacker</h4><p>Cisco – Apr 2024</p></div>
-      <div class="card"><h4>✅ Pen Testing & IR</h4><p>IBM – Jan 2023</p></div>
-      <div class="card"><h4>✅ Cloud Fundamentals</h4><p>Azure – Jul 2022</p></div>
-      <div class="card"><h4>✅ Scrum Product Owner</h4><p>Scrum Alliance – Apr 2021</p></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h3>Explore More</h3>
-    <ul>
-      <li><a href="skills.html">My Skills</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="FamagustaRunners.html">Famagusta Runners</a></li>
-      <li><a href="contact-me.html">Contact Me</a></li>
-    </ul>
-  </section>
+  <!-- Add more sections here if needed -->
 
   <footer>
     <p>© Michalis Eliodorou. All rights reserved.</p>
