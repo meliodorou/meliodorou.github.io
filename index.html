@@ -21,6 +21,7 @@
       --muted: #444;
       --header-bg: linear-gradient(to right, #e0f7fa, #f1f8e9);
       --footer-bg: #ffffff;
+      --link: #0056b3;
     }
 
     body.dark-mode {
@@ -33,6 +34,7 @@
       --muted: #cccccc;
       --header-bg: #5b5b5b;
       --footer-bg: #5b5b5b;
+      --link: #80dfff;
     }
 
     * {
@@ -49,13 +51,26 @@
       transition: background 0.3s, color 0.3s;
     }
 
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     header {
       background: var(--header-bg);
-      padding: 3rem 1rem 2rem;
+      padding: 4rem 1rem 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
+      background-image: url('my_profile_pic_square-modified.png');
+      background-repeat: no-repeat;
+      background-size: 150px;
+      background-position: top right 2rem;
     }
 
     header h1 {
@@ -192,19 +207,19 @@
     <h3>My Education</h3>
     <div class="grid">
       <div class="card">
-        <h4>MBA, CIIM (2021–2024)</h4>
-        <p>Grade: 90/100 • Lupton Scholarship</p>
+        <h4>MBA – CIIM (2021–2024)</h4>
+        <p>Grade: 90/100 — Lupton Scholarship</p>
       </div>
       <div class="card">
-        <h4>MSc Computer Engineering, UCY (2020–2022)</h4>
-        <p>Grade: 8.5/10 • Full MSCA Scholarship</p>
+        <h4>MSc Computer Engineering – UCY (2020–2022)</h4>
+        <p>Grade: 8.5/10 — MSCA Scholarship</p>
       </div>
       <div class="card">
-        <h4>MSc Embedded Systems, Southampton (2016–2017)</h4>
+        <h4>MSc Embedded Systems – Southampton (2016–2017)</h4>
         <p>Grade: Distinction</p>
       </div>
       <div class="card">
-        <h4>BSc Electrical & Computer Eng, NTUA (2010–2016)</h4>
+        <h4>BSc Electrical & Computer Eng – NTUA (2010–2016)</h4>
         <p>Grade: 7.86/10</p>
       </div>
     </div>
@@ -215,19 +230,19 @@
     <div class="grid">
       <div class="card">
         <h4>IT Officer</h4>
-        <p>Ministry of Digital Strategy (2024–Now)</p>
+        <p>Ministry of Research, Innovation and Digital Strategy – 2024–Now</p>
       </div>
       <div class="card">
-        <h4>Network Specialist</h4>
-        <p>Kyndryl / IBM (2022–2024)</p>
+        <h4>Network Services Specialist</h4>
+        <p>Kyndryl – 2022–2024</p>
       </div>
       <div class="card">
-        <h4>Access Network Engineer</h4>
-        <p>Epic Cyprus (2020–2022)</p>
+        <h4>Access Network Planning Engineer</h4>
+        <p>Epic – 2020–2022</p>
       </div>
       <div class="card">
-        <h4>Marie Curie Fellow</h4>
-        <p>SPOTLIGHT Project (2017–2020)</p>
+        <h4>Marie Curie Research Fellow</h4>
+        <p>SPOTLIGHT Project – 2017–2020</p>
       </div>
     </div>
   </section>
@@ -235,10 +250,22 @@
   <section class="section">
     <h3>Certifications</h3>
     <div class="grid">
-      <div class="card"><h4>✅ Ethical Hacker</h4><p>Cisco – Apr 2024</p></div>
-      <div class="card"><h4>✅ Pen Testing & IR</h4><p>IBM – Jan 2023</p></div>
-      <div class="card"><h4>✅ Cloud Fundamentals</h4><p>Azure – Jul 2022</p></div>
-      <div class="card"><h4>✅ Scrum Product Owner</h4><p>Scrum Alliance – Apr 2021</p></div>
+      <div class="card">
+        <h4>✅ Ethical Hacker</h4>
+        <p>Cisco – Apr 2024</p>
+      </div>
+      <div class="card">
+        <h4>✅ Penetration Testing & Forensics</h4>
+        <p>IBM – Jan 2023</p>
+      </div>
+      <div class="card">
+        <h4>✅ Cloud Fundamentals</h4>
+        <p>Azure – Jul 2022</p>
+      </div>
+      <div class="card">
+        <h4>✅ Scrum Product Owner</h4>
+        <p>Scrum Alliance – Apr 2021</p>
+      </div>
     </div>
   </section>
 
