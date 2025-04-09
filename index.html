@@ -127,6 +127,34 @@
 
     @media (max-width: 768px) {
     }
+
+     tbody {
+        display: block;
+      }
+    
+      tbody tr {
+        display: block;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+      }
+    
+      tbody td {
+        display: block;
+        padding: 0.25rem 0;
+        font-size: 0.95rem;
+      }
+    
+      tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        color: #002855;
+      }
+    }
+    
   </style>
 </head>
 
@@ -156,49 +184,51 @@
 
     <hr>
 
-    <h3>My Education</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Dates</th>
-          <th>Degree</th>
-          <th>Grade</th>
-          <th>Academic Institute</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2021-2024</td>
-          <td><strong>MBA - Master in Business Administration</strong> – awarded Lupton scholarship</td>
-          <td>90/100</td>
-          <td><em>University of Limassol, CIIM, Cyprus</em></td>
-        </tr>
-        <tr>
-          <td>2020-2022</td>
-          <td><strong>MSc in Computer Engineering</strong> – awarded full MSCA scholarship</td>
-          <td>8.5/10</td>
-          <td><em>University of Cyprus</em></td>
-        </tr>
-        <tr>
-          <td>2016-2017</td>
-          <td><strong>MSc in Embedded Systems</strong></td>
-          <td>Distinction</td>
-          <td><em>University of Southampton, UK</em></td>
-        </tr>
-        <tr>
-          <td>2010-2016</td>
-          <td><strong>BSc in Electrical and Computer Engineering</strong></td>
-          <td>7.86/10</td>
-          <td><em>NTUA, Athens (Εθνικό Μετσόβιο Πολυτεχνείο)</em></td>
-        </tr>
-        <tr>
-          <td>2005-2008</td>
-          <td><strong>High School Diploma</strong></td>
-          <td>19.17/20</td>
-          <td><em>Kykkos A' Lyceum, Nicosia</em></td>
-        </tr>
-      </tbody>
-    </table>
+   <h3>My Education</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dates</th>
+      <th>Degree</th>
+      <th>Grade</th>
+      <th>Academic Institute</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Dates">2021–2024</td>
+      <td data-label="Degree"><strong>MBA - Master in Business Administration</strong><br>Lupton Scholarship Recipient</td>
+      <td data-label="Grade">90/100</td>
+      <td data-label="Academic Institute"><em>University of Limassol, CIIM, Cyprus</em></td>
+    </tr>
+    <tr>
+      <td data-label="Dates">2020–2022</td>
+      <td data-label="Degree"><strong>MSc in Computer Engineering</strong><br>Full MSCA Scholarship</td>
+      <td data-label="Grade">8.5/10</td>
+      <td data-label="Academic Institute"><em>University of Cyprus</em></td>
+    </tr>
+    <tr>
+      <td data-label="Dates">2016–2017</td>
+      <td data-label="Degree"><strong>MSc in Embedded Systems</strong></td>
+      <td data-label="Grade">Distinction</td>
+      <td data-label="Academic Institute"><em>University of Southampton, UK</em></td>
+    </tr>
+    <tr>
+      <td data-label="Dates">2010–2016</td>
+      <td data-label="Degree"><strong>BSc in Electrical and Computer Engineering</strong></td>
+      <td data-label="Grade">7.86/10</td>
+      <td data-label="Academic Institute"><em>NTUA, Athens (Εθνικό Μετσόβιο Πολυτεχνείο)</em></td>
+    </tr>
+    <tr>
+      <td data-label="Dates">2005–2008</td>
+      <td data-label="Degree"><strong>High School Diploma</strong></td>
+      <td data-label="Grade">19.17/20</td>
+      <td data-label="Academic Institute"><em>Kykkos A' Lyceum, Nicosia</em></td>
+    </tr>
+  </tbody>
+</table>
+
 
     <hr>
 
@@ -229,17 +259,17 @@
     <hr>
 
     <h3>Certifications</h3>
-    <ul style="columns: 2; -webkit-columns: 2; -moz-columns: 2; padding-left: 1.5rem;">
-      <li>Ethical Hacker – Cisco (Apr 2024)</li>
-      <li>Penetration Testing, IR & Forensics – IBM (Jan 2023)</li>
-      <li>Cybersecurity Tools & Attacks – IBM (Jan 2023)</li>
-      <li>Cloud & Virtualization – VMware (Nov 2022)</li>
-      <li>IBM Cloud Essentials V3 (Oct 2022)</li>
-      <li>Azure Fundamentals (AZ-900) – Microsoft (Jul 2022)</li>
-      <li>Certified Scrum Product Owner – Scrum Alliance (Apr 2021)</li>
-      <li>Electrical OM – IEEE UCY Branch (Feb 2019)</li>
-      <li>LTE Operations & Maintenance – Huawei (Dec 2018)</li>
-    </ul>
+      <ul style="padding-left: 1.5rem; list-style-type: none;">
+        <li style="margin-bottom: 0.5rem;">✅ Ethical Hacker – Cisco (Apr 2024)</li>
+        <li style="margin-bottom: 0.5rem;">✅ Penetration Testing, IR & Forensics – IBM (Jan 2023)</li>
+        <li style="margin-bottom: 0.5rem;">✅ Cybersecurity Tools & Attacks – IBM (Jan 2023)</li>
+        <li style="margin-bottom: 0.5rem;">✅ Cloud & Virtualization – VMware (Nov 2022)</li>
+        <li style="margin-bottom: 0.5rem;">✅ IBM Cloud Essentials V3 (Oct 2022)</li>
+        <li style="margin-bottom: 0.5rem;">✅ Azure Fundamentals (AZ-900) – Microsoft (Jul 2022)</li>
+        <li style="margin-bottom: 0.5rem;">✅ Certified Scrum Product Owner – Scrum Alliance (Apr 2021)</li>
+        <li style="margin-bottom: 0.5rem;">✅ Electrical OM – IEEE UCY Branch (Feb 2019)</li>
+        <li style="margin-bottom: 0.5rem;">✅ LTE Operations & Maintenance – Huawei (Dec 2018)</li>
+      </ul>
 
 
     <hr>
