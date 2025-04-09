@@ -8,27 +8,28 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 text-gray-800">
-    <header class="bg-white shadow-md">
-      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+<header class="bg-white shadow-md">
+  <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0">
+    
+    <!-- Logo and Title -->
+    <div class="flex items-center space-x-4">
+      <img src="assets/ANO_logo.png" alt="Club Logo" class="h-12 w-12 object-contain" />
+      <h1 class="text-lg md:text-xl font-bold text-center md:text-left">
+        Ανόρθωσις Αμμοχώστου Δρομείς - Anorthosis Famagusta Runners
+      </h1>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex flex-wrap justify-center md:justify-start items-center space-x-4 md:space-x-6">
+      <a href="FamagustaRunners.html" class="text-blue-600 hover:underline">Home</a>
+      <a href="join.html" class="text-blue-600 hover:underline">Join Us</a>
+      <a href="merch.html" class="text-blue-600 hover:underline">Merch</a>
+      <a href="contact.html" class="text-blue-600 hover:underline">Contact</a>
+    </nav>
+
+  </div>
+</header>
   
-      <!-- Logo and Title -->
-      <div class="flex items-center space-x-4">
-        <img src="assets/ANO_logo.png" alt="Club Logo" class="h-12 w-12 object-contain" />
-        <h1 class="text-xl font-bold">
-          Ανόρθωσις Αμμοχώστου Δρομείς - Anorthosis Famagusta Runners
-        </h1>
-      </div>
-  
-      <!-- Navigation -->
-      <nav class="flex items-center space-x-6 ml-8">
-        <a href="FamagustaRunners.html" class="text-blue-600 hover:underline">Home</a>
-        <a href="join.html" class="text-blue-600 hover:underline">Join the Club</a>
-        <a href="merch.html" class="text-blue-600 hover:underline">Merchandise</a>
-        <a href="contact.html" class="text-blue-600 hover:underline ml-auto">Contact Us</a>
-      </nav>
-  
-      </div>
-    </header>
   <h1 class="text-3xl font-bold text-center mt-12">Our Merchandise</h1>
   <p class="text-center mt-4">Coming soon!</p>
 </body>
