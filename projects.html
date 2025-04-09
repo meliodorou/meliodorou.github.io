@@ -1,15 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Projects</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Michalis Eliodorou</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --main-accent: #00bcd4;
+      --dark-text: #002855;
+      --light-bg: #f9fafa;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-bg);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+      text-align: center;
+      padding: 2.5rem 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: var(--dark-text);
+      margin-bottom: 0.5rem;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background-color: #f9f9f9;
+      padding: 1.5rem;
+      border-left: 4px solid var(--main-accent);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
+    }
+
+    .project-card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.2rem;
+      color: var(--dark-text);
+    }
+
+    .project-card a {
+      color: var(--main-accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+      color: #007c91;
+    }
+
+    footer {
+      background-color: #001F54;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+  </style>
 </head>
+
 <body>
 
-    <h1>Early day projects</h1>
+  <header>
+    <h1>My Projects</h1>
+    <p>Small things I built early on while learning HTML and web development.</p>
+  </header>
 
-    <h3><a href="./movies.html">Movie Ranking Project</a></h3>
-    <h3><a href="./birthday.html">Birthday Invite Project</a></h3>
+  <div class="content">
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3><a href="./movies.html">🎬 Movie Ranking Project</a></h3>
+        <p>A simple webpage listing my favorite movies, built to practice HTML structure.</p>
+      </div>
+
+      <div class="project-card">
+        <h3><a href="./birthday.html">🎉 Birthday Invite Project</a></h3>
+        <p>An interactive birthday invitation page with fun formatting and basic styling.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© Michalis Eliodorou. All rights reserved.</p>
+  </footer>
 
 </body>
+
 </html>
