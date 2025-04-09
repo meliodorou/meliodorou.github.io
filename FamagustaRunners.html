@@ -1,60 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit Your Name</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
-        input, button { padding: 10px; margin: 10px; }
-        .message { color: red; display: none; }
-    </style>
-</head>
-<body>
-
-    <h1 style="color:blue;">Enter Your First Name</h1>
-    <h1 style="color:red;">Enter Your Last Name</h1>
-    <form id="name-form">  <!-- Correct form ID -->
-        <input type="text" id="first-name" name="first_name" required placeholder="First Name">
-        <button type="submit">Submit</button>
-    </form>
-
-    <div class="message" id="success-message">Thank you! Your name has been recorded.</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("name-form").addEventListener("submit", function(event) {  // Correct form ID
-      event.preventDefault(); 
-
-      // Collect form data
-      const firstName = document.getElementById("first-name").value;  // Correct input ID
-
-      // Prepare data for Google Apps Script
-      const data = { firstName: firstName };
-
-      // Send data using fetch
-      fetch('https://script.google.com/macros/s/AKfycbwnJrsO3rPFzdHt4Lk9mkB23_L893z8rb3romTV4C8coeXbYZG8Kw7mC2G1ZphoWuCl/exec', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(result => {
-        if (result.status === "success") {
-          document.getElementById("success-message").style.display = "block";
-          document.getElementById("name-form").reset();  // Correct form ID
-        } else {
-          alert("Error: " + result.message);
-        }
-      })
-      .catch(error => {
-        alert("Error submitting form: " + error);
-      });
-    });
-  });
-</script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join Our Running Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-2xl shadow-md w-full max-w-md">
+      <h1 class="text-2xl font-bold mb-6 text-center">Join Our Running Club</h1>
+        <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfHUTNXBgZ7YFIht43E6HI_n3SMKuZh0Dw_g64cT5y1WS0uEg/viewform?embedded=true" 
+            width="640" 
+            height="673" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0"
+        >Loading…</iframe>
+    </div>
+  </body>
 </html>
