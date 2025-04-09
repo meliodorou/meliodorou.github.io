@@ -5,9 +5,108 @@
   <meta charset="utf-8">
   <meta name="description" content="This website was designed by Michalis Eliodorou to demonstrate his skills in HTML, CSS, JavaScript and Python">
   <title>Personal Site</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header, footer {
+      background-color: #001F54;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1, h3 {
+      color: #001F54;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #001F54;
+      color: white;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background-color: #001F54;
+      margin: 2rem 0;
+    }
+
+    img {
+      border-radius: 50%;
+      max-width: 150px;
+      height: auto;
+    }
+
+    a {
+      color: #0056b3;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    ul {
+      list-style-type: square;
+      margin-left: 1.5rem;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      td {
+        padding: 10px 0;
+      }
+
+      table {
+        margin-bottom: 3rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <h1>Michalis Eliodorou</h1>
+    <p>Engineer at heart - optimizing the present, engineering the future.</p>
+  </header>
+
+  <div class="content">
+    
   <hr color=#00008B size="3" noshade>
 
   <table cellspacing="15">
@@ -117,7 +216,7 @@
   
     <!-- Contact me -->
     <h3><a href="contact-me.html">Contact me</a></h3>
-
+  </div>
     <footer>
       <p>© Michalis Eliodorou. All rights reserved.</p>
     </footer>
