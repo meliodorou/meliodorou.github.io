@@ -125,9 +125,43 @@
       margin-top: 4rem;
     }
 
-    @media (max-width: 768px) {
+    .education-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
     }
-
+    
+    .edu-card {
+      background-color: #f9f9f9;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #00bcd4;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: transform 0.2s ease;
+    }
+    
+    .edu-card:hover {
+      transform: scale(1.01);
+    }
+    
+    .edu-card p {
+      margin: 0;
+      text-align: left;
+      line-height: 1.5;
+    }
+    
+    .edu-card .highlight {
+      font-weight: bold;
+      color: #002855;
+    }
+    
+    @media (min-width: 768px) {
+      .education-section {
+        gap: 2rem;
+      }
+    }
+    
      tbody {
         display: block;
       }
@@ -184,50 +218,41 @@
 
     <hr>
 
-   <h3>My Education</h3>
+<h3>My Education</h3>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Dates</th>
-          <th>Degree</th>
-          <th>Grade</th>
-          <th>Academic Institute</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-label="Dates">2021–2024</td>
-          <td data-label="Degree"><strong>MBA - Master in Business Administration</strong><br>Lupton Scholarship Recipient</td>
-          <td data-label="Grade">90/100</td>
-          <td data-label="Academic Institute"><em>University of Limassol, CIIM, Cyprus</em></td>
-        </tr>
-        <tr>
-          <td data-label="Dates">2020–2022</td>
-          <td data-label="Degree"><strong>MSc in Computer Engineering</strong><br>Full MSCA Scholarship</td>
-          <td data-label="Grade">8.5/10</td>
-          <td data-label="Academic Institute"><em>University of Cyprus</em></td>
-        </tr>
-        <tr>
-          <td data-label="Dates">2016–2017</td>
-          <td data-label="Degree"><strong>MSc in Embedded Systems</strong></td>
-          <td data-label="Grade">Distinction</td>
-          <td data-label="Academic Institute"><em>University of Southampton, UK</em></td>
-        </tr>
-        <tr>
-          <td data-label="Dates">2010–2016</td>
-          <td data-label="Degree"><strong>BSc in Electrical and Computer Engineering</strong></td>
-          <td data-label="Grade">7.86/10</td>
-          <td data-label="Academic Institute"><em>NTUA, Athens (Εθνικό Μετσόβιο Πολυτεχνείο)</em></td>
-        </tr>
-        <tr>
-          <td data-label="Dates">2005–2008</td>
-          <td data-label="Degree"><strong>High School Diploma</strong></td>
-          <td data-label="Grade">19.17/20</td>
-          <td data-label="Academic Institute"><em>Kykkos A' Lyceum, Nicosia</em></td>
-        </tr>
-      </tbody>
-    </table>
+<div class="education-section">
+  <div class="edu-card">
+    <p><strong>2021–2024</strong> — MBA, <em>University of Limassol, CIIM</em><br>
+      <span class="highlight">Grade: 90/100</span><br>
+      Lupton Scholarship Recipient
+    </p>
+  </div>
+  
+  <div class="edu-card">
+    <p><strong>2020–2022</strong> — MSc in Computer Engineering, <em>University of Cyprus</em><br>
+      <span class="highlight">Grade: 8.5/10</span><br>
+      Full MSCA Scholarship
+    </p>
+  </div>
+  
+  <div class="edu-card">
+    <p><strong>2016–2017</strong> — MSc in Embedded Systems, <em>University of Southampton, UK</em><br>
+      <span class="highlight">Grade: Distinction</span>
+    </p>
+  </div>
+  
+  <div class="edu-card">
+    <p><strong>2010–2016</strong> — BSc in Electrical & Computer Engineering, <em>NTUA, Athens</em><br>
+      <span class="highlight">Grade: 7.86/10</span>
+    </p>
+  </div>
+  
+  <div class="edu-card">
+    <p><strong>2005–2008</strong> — High School Diploma, <em>Kykkos A' Lyceum, Nicosia</em><br>
+      <span class="highlight">Grade: 19.17/20</span>
+    </p>
+  </div>
+</div>
 
 
     <hr>
