@@ -1,322 +1,260 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="description" content="Michalis Eliodorou's personal website">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Michalis Eliodorou</title>
-
-  <!-- Google Font: Inter -->
+  <title>Michalis Eliodorou | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
     :root {
-      --main-accent: #00bcd4;
-      --dark-text: #002855;
-      --light-bg: #f9fafa;
+      --accent: #00bcd4;
+      --dark: #002855;
+      --light: #f9f9f9;
+      --bg: #ffffff;
+      --text: #333333;
+    }
+
+    body.dark-mode {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --light: #1e1e1e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--light-bg);
-      color: #333;
-      margin: 0;
-      padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
       line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
     }
 
     header {
-      background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+      background: linear-gradient(to right, #e0f7fa, #f1f8e9);
       text-align: center;
       padding: 3rem 1rem 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    header img {
-      border-radius: 50%;
-      width: 150px;
-      height: auto;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    header img:hover {
-      transform: scale(1.05);
     }
 
     header h1 {
-      margin-top: 1rem;
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: var(--dark-text);
+      font-size: 2.8rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
     }
 
     header p {
       font-style: italic;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: #444;
-      margin-top: 0.5rem;
     }
 
-    .content {
-      max-width: 900px;
+    .toggle-container {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .toggle-container button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background-color: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .section {
+      max-width: 1000px;
       margin: 2rem auto;
       padding: 2rem;
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      background-color: var(--light);
       border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
     }
 
-    .section-left {
-      margin-bottom: 2rem;
-      text-align: left;
-      padding-left: 0;
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    h3 {
-      color: var(--dark-text);
-      margin-top: 2rem;
+    .section h3 {
+      color: var(--dark);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.75rem;
     }
 
-    a {
-      color: var(--main-accent);
-      text-decoration: none;
-      transition: all 0.3s ease;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
     }
 
-    a:hover {
-      color: #007c91;
-      text-decoration: underline;
+    .card {
+      background: var(--bg);
+      padding: 1.5rem;
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 2rem;
-      overflow-x: auto;
-      display: block;
-      white-space: nowrap;
+    .card:hover {
+      transform: translateY(-5px);
     }
 
-    th, td {
-      border: 1px solid #ddd;
-      padding: 12px;
-      text-align: left;
+    .card h4 {
+      color: var(--dark);
+      margin-bottom: 0.5rem;
     }
 
-    th {
-      background-color: var(--dark-text);
-      color: white;
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
     }
 
-    ul {
-      list-style-type: square;
-      margin-left: 1.5rem;
+    .about-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
     }
 
-    hr {
-      border: none;
-      height: 2px;
-      background-color: var(--dark-text);
-      margin: 2.5rem 0;
+    .about-columns img {
+      border-radius: 50%;
+      max-width: 180px;
+      height: auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     footer {
-      background-color: #001F54;
-      color: white;
       text-align: center;
-      padding: 1rem;
+      padding: 2rem;
       font-size: 0.9rem;
-      margin-top: 4rem;
+      color: #777;
     }
-
-    .education-section {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    
-    .edu-card {
-      background-color: #f9f9f9;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      border-left: 4px solid #00bcd4;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-      transition: transform 0.2s ease;
-    }
-    
-    .edu-card:hover {
-      transform: scale(1.01);
-    }
-    
-    .edu-card p {
-      margin: 0;
-      text-align: left;
-      line-height: 1.5;
-    }
-    
-    .edu-card .highlight {
-      font-weight: bold;
-      color: #002855;
-    }
-    
-    @media (min-width: 768px) {
-      .education-section {
-        gap: 2rem;
-      }
-    }
-    
-     tbody {
-        display: block;
-      }
-    
-      tbody tr {
-        display: block;
-        border: 1px solid #ddd;
-        padding: 1rem;
-        margin-bottom: 1rem;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-      }
-    
-      tbody td {
-        display: block;
-        padding: 0.25rem 0;
-        font-size: 0.95rem;
-      }
-    
-      tbody td::before {
-        content: attr(data-label);
-        font-weight: bold;
-        display: block;
-        color: #002855;
-      }
-    }
-    
   </style>
 </head>
 
 <body>
-
   <header>
-    <img src="my_profile_pic_square-modified.png" alt="Michalis profile picture" />
     <h1>Michalis Eliodorou</h1>
     <p>Engineer at heart – optimizing the present, engineering the future.</p>
+    <div class="toggle-container">
+      <button onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+    </div>
   </header>
 
-  <div class="content">
-
-    <p>
-      I'm a passionate computer engineer with a solid background in electrical and computer engineering. I’ve worked on
-      research, design, and app development, and my experience in a European-funded Innovative Training Network project 
-      sharpened my technical skills and critical thinking.
-    </p>
-
-    <p>
-      My research on 5G networks, which are revolutionizing many sectors, led me to pursue a career in IT systems. I started
-      at Epic, handling network planning, design, and equipment maintenance, and helped create 5G and VoLTE services.
-      Later, I joined Kyndryl (formerly IBM) as a Network and Security Specialist, gaining hands-on experience with IBM, 
-      Cisco, Fortinet, and Checkpoint products. Now, I’m with the Department of IT Services of the Republic of Cyprus, 
-      working on projects to modernize and digitize public services.
-    </p>
-
-    <hr>
-
-<h3>My Education</h3>
-
-<div class="education-section">
-  <div class="edu-card">
-    <p><strong>2021–2024</strong> — MBA, <em>University of Limassol, CIIM</em><br>
-      <span class="highlight">Grade: 90/100</span><br>
-      Lupton Scholarship Recipient
-    </p>
-  </div>
-  
-  <div class="edu-card">
-    <p><strong>2020–2022</strong> — MSc in Computer Engineering, <em>University of Cyprus</em><br>
-      <span class="highlight">Grade: 8.5/10</span><br>
-      Full MSCA Scholarship
-    </p>
-  </div>
-  
-  <div class="edu-card">
-    <p><strong>2016–2017</strong> — MSc in Embedded Systems, <em>University of Southampton, UK</em><br>
-      <span class="highlight">Grade: Distinction</span>
-    </p>
-  </div>
-  
-  <div class="edu-card">
-    <p><strong>2010–2016</strong> — BSc in Electrical & Computer Engineering, <em>NTUA, Athens</em><br>
-      <span class="highlight">Grade: 7.86/10</span>
-    </p>
-  </div>
-  
-  <div class="edu-card">
-    <p><strong>2005–2008</strong> — High School Diploma, <em>Kykkos A' Lyceum, Nicosia</em><br>
-      <span class="highlight">Grade: 19.17/20</span>
-    </p>
-  </div>
-</div>
-
-
-    <hr>
-    
-    <div class="section-left">
-      <h3>My Work Experience</h3>
-      <ul>
-        <li style="margin-bottom: 1rem;">
-          <strong>2024–Now:</strong> IT Officer at 
-          <a href="https://www.dmrid.gov.cy/dmrid/research.nsf/home_en/home_en?openform">Ministry of Research, Innovation and Digital Strategy</a>
-        </li>
-        <li style="margin-bottom: 1rem;">
-          <strong>2022–2024:</strong> Network Services Specialist at 
-          <a href="https://www.kyndryl.com/us/en">Kyndryl</a>
-        </li>
-        <li style="margin-bottom: 1rem;">
-          <strong>2020–2022:</strong> Access Network Planning Engineer at 
-          <a href="https://www.epic.com.cy">Epic</a>
-        </li>
-        <li style="margin-bottom: 1rem;">
-          <strong>2017–2020:</strong> Marie Curie Research Fellow at 
-          <a href="https://www.epic.com.cy">Epic</a><br />
-          <em>Placements:</em> 
-          <a href="https://www.ucy.ac.cy/iridacentre/people/">IRIDA, University of Cyprus</a> & 
-          <a href="https://www.york.ac.uk/physics-engineering-technology/research/communication-technologies/">University of York</a>
-        </li>
-      </ul>
+  <section class="section">
+    <div class="about-columns">
+      <img src="my_profile_pic_square-modified.png" alt="Michalis profile picture" />
+      <div>
+        <h3>About Me</h3>
+        <p>
+          I'm a passionate computer engineer with a solid background in electrical and computer engineering. I’ve worked on
+          research, design, and app development, and my experience in a European-funded project sharpened my technical
+          skills and critical thinking. My recent work focuses on IT systems modernization and cybersecurity.
+        </p>
+      </div>
     </div>
-    <hr>
+  </section>
 
-    <div class="section-left">
-      <h3>Certifications</h3>
-      <ul>
-        <li style="margin-bottom: 0.4rem;"> Ethical Hacker – Cisco (Apr 2024)</li>
-        <li style="margin-bottom: 0.4rem;"> Penetration Testing, IR & Forensics – IBM (Jan 2023)</li>
-        <li style="margin-bottom: 0.4rem;"> Cybersecurity Tools & Attacks – IBM (Jan 2023)</li>
-        <li style="margin-bottom: 0.4rem;"> Cloud & Virtualization – VMware (Nov 2022)</li>
-        <li style="margin-bottom: 0.4rem;"> IBM Cloud Essentials V3 (Oct 2022)</li>
-        <li style="margin-bottom: 0.4rem;"> Azure Fundamentals (AZ-900) – Microsoft (Jul 2022)</li>
-        <li style="margin-bottom: 0.4rem;"> Certified Scrum Product Owner – Scrum Alliance (Apr 2021)</li>
-        <li style="margin-bottom: 0.4rem;"> Electrical OM – IEEE UCY Branch (Feb 2019)</li>
-        <li style="margin-bottom: 0.4rem;"> LTE Operations & Maintenance – Huawei (Dec 2018)</li>
-      </ul>
+  <section class="section">
+    <h3>Education</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>MBA, CIIM (2021–2024)</h4>
+        <p>Grade: 90/100 • Lupton Scholarship</p>
+      </div>
+      <div class="card">
+        <h4>MSc Computer Engineering, UCY (2020–2022)</h4>
+        <p>Grade: 8.5/10 • Full MSCA Scholarship</p>
+      </div>
+      <div class="card">
+        <h4>MSc Embedded Systems, Southampton (2016–2017)</h4>
+        <p>Grade: Distinction</p>
+      </div>
+      <div class="card">
+        <h4>BSc Electrical & Computer Eng, NTUA (2010–2016)</h4>
+        <p>Grade: 7.86/10</p>
+      </div>
     </div>
+  </section>
 
-    <hr>
+  <section class="section">
+    <h3>Work Experience</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>IT Officer</h4>
+        <p>Ministry of Digital Strategy (2024–Now)</p>
+      </div>
+      <div class="card">
+        <h4>Network Specialist</h4>
+        <p>Kyndryl / IBM (2022–2024)</p>
+      </div>
+      <div class="card">
+        <h4>Access Network Engineer</h4>
+        <p>Epic Cyprus (2020–2022)</p>
+      </div>
+      <div class="card">
+        <h4>Marie Curie Fellow</h4>
+        <p>SPOTLIGHT Project (2017–2020)</p>
+      </div>
+    </div>
+  </section>
 
-    <h3><a href="skills.html">Skills</a></h3>
-    <h3><a href="projects.html">Projects</a></h3>
-    <h3><a href="FamagustaRunners.html">Famagusta Runners</a></h3>
-    <h3><a href="contact-me.html">Contact Me</a></h3>
+  <section class="section">
+    <h3>Certifications</h3>
+    <div class="grid">
+      <div class="card"><h4>✅ Ethical Hacker</h4><p>Cisco – Apr 2024</p></div>
+      <div class="card"><h4>✅ Pen Testing & IR</h4><p>IBM – Jan 2023</p></div>
+      <div class="card"><h4>✅ Cloud Fundamentals</h4><p>Azure – Jul 2022</p></div>
+      <div class="card"><h4>✅ Scrum Product Owner</h4><p>Scrum Alliance – Apr 2021</p></div>
+    </div>
+  </section>
 
-  </div>
+  <section class="section">
+    <h3>Explore More</h3>
+    <ul>
+      <li><a href="skills.html">My Skills</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="FamagustaRunners.html">Famagusta Runners</a></li>
+      <li><a href="contact-me.html">Contact Me</a></li>
+    </ul>
+  </section>
 
   <footer>
     <p>© Michalis Eliodorou. All rights reserved.</p>
   </footer>
 
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 
 </html>
